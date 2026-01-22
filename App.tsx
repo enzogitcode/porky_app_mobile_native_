@@ -1,20 +1,67 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import Container from "./src/ui/Container";
+import ButtonCustom from "./src/ui/ButtonCustom";
+import {customStyles} from "./src/styles/customStyles";
 
-export default function App() {
+const App = () => {
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Container>
+      <Text style={styles.btnText}>Welcome !!</Text>
+
+      <View style={styles.buttonContainer}>
+        <ButtonCustom
+          title="Buscar un cerdo"
+          btnTitleStyle={styles.btnText}
+          btnStyle={[ styles.btnStyle]}
+          darkStyle={customStyles.infoButton}
+          onPress={() => console.log("apreté el botón")}
+        />
+        <ButtonCustom
+          title="Ver todos los cerdos"
+          btnTitleStyle={styles.btnText}
+          btnStyle={styles.btnStyle}
+          darkMode={true}
+          onPress={() => console.log("apreté el botón")}
+        />
+        <ButtonCustom
+          title="Agregar un cerdo"
+          btnTitleStyle={styles.btnText}
+          btnStyle={styles.btnStyle}
+          darkMode={true}
+          onPress={() => console.log("apreté el botón")}
+        />
+
+        
+      </View>
+    </Container>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  buttonContainer: {
+    alignItems:'center',
+    justifyContent:'center',
+    textAlign:'center',
+    margin: 5,
+    gap: 15,
+    padding: 10,
+    borderBlockColor: '#000',
+    borderRadius: '10%',
+    borderWidth:4
   },
+  btnText: {
+    fontSize: 30
+  },
+  btnStyle: {
+    borderBlockColor:'#000',
+    padding: 4,
+    borderWidth: 2,
+    borderRadius:10,
+    margin: 20
+  }
 });
