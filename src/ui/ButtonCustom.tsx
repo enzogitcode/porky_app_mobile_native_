@@ -1,29 +1,51 @@
-import { RegisteredStyle, StyleProp, StyleSheet, Text, TextStyle, TouchableHighlight, View, ViewStyle } from 'react-native'
-import React from 'react'
+import {
+  RegisteredStyle,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableHighlight,
+  View,
+  ViewStyle,
+} from "react-native";
+import React from "react";
 
 interface ButtonCustomProps {
-  title:string
-  onPress?: () => void
-  darkMode?:boolean
-  btnTitleStyle?:StyleProp<TextStyle>
-  btnStyle?:StyleProp<ViewStyle>
-  lightStyle?:StyleProp<ViewStyle>
-  darkStyle?:StyleProp<ViewStyle>
+  title: string;
+  onPress?: () => void;
+  darkMode?: boolean;
+  btnTitleStyle?: StyleProp<TextStyle>;
+  btnStyle?: StyleProp<ViewStyle>;
+  lightStyle?: StyleProp<ViewStyle>;
+  darkStyle?: StyleProp<ViewStyle>;
 }
 
-const ButtonCustom:React.FC<ButtonCustomProps> = ({title, onPress, btnTitleStyle, darkMode, btnStyle, lightStyle, darkStyle }) => {
-
+const ButtonCustom: React.FC<ButtonCustomProps> = ({
+  title,
+  onPress,
+  btnTitleStyle,
+  darkMode,
+  btnStyle,
+  lightStyle,
+  darkStyle,
+}) => {
   return (
-    <TouchableHighlight onPress={onPress} style={[styles.btnDefaultStyle, btnStyle, darkMode? darkStyle:lightStyle]}>
+    <TouchableHighlight
+      onPress={onPress}
+      style={[
+        
+        styles.btnDefaultStyle,
+        btnStyle,
+        darkMode ? darkStyle : lightStyle,
+      ]}
+    >
       <Text style={btnTitleStyle}>{title}</Text>
     </TouchableHighlight>
-  )
-}
+  );
+};
 
-export default ButtonCustom
-
+export default ButtonCustom;
 
 const styles = StyleSheet.create({
-btnDefaultStyle:{
-}
-})
+  btnDefaultStyle: {},
+});
