@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const vacunarMultipleScreen = () => {
+const VacunasRegister = () => {
   return (
     <View>
-      <Text>vacunarMultipleScreen</Text>
+      <Text>VacunasRegister</Text>
     </View>
   )
 }
 
-export default vacunarMultipleScreen
+export default VacunasRegister
 
 const styles = StyleSheet.create({})

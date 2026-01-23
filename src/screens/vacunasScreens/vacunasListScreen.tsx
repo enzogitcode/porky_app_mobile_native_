@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Container from '../../ui/Container'
 
-const vacunasListScreen = () => {
+const VacunasListScreen = () => {
   return (
-    <View>
-      <Text>vacunasListScreen</Text>
-    </View>
+    <Container>
+      <Text>VacunasListScreen</Text>
+    </Container>
   )
 }
 
-export default vacunasListScreen
+export default VacunasListScreen
 
 const styles = StyleSheet.create({})

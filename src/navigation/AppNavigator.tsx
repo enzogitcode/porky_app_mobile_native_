@@ -1,22 +1,17 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { RootStackParamList } from './types'
-
+import React from "react";
 // screens
-import HomeScreen from '../screens/HomeScreen'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeTabsNavigation from "./homeTab/HomeTabs";
+import VacunasTabsNavigation from "./vacunasTabs/VacunasTabs";
 
-const Stack = createNativeStackNavigator<RootStackParamList>()
+const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      
-      
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ title: 'Home' }}
-      />
-    </Stack.Navigator>
-  )
+    <Tab.Navigator initialRouteName="HomeTabs">
+      <Tab.Screen name="HomeTabs" component={HomeTabsNavigation} />
+
+      <Tab.Screen name="VacunasTabs" component={VacunasTabsNavigation} />
+    </Tab.Navigator>
+  );
 }
