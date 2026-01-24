@@ -3,6 +3,7 @@
 // 👇 Tab principal
 export type RootTabParamList = {
   HomeTabs: undefined;
+  PigsTabs:undefined;
   VacunasTabs: undefined;
   ProfileTabs: undefined;
 };
@@ -15,6 +16,7 @@ export type HomeStackParamList = {
 // 👇 Vacunas stack
 export type VacunasStackParamList = {
   IndexVacunas: undefined;
-  VacunasList:undefined
-  VacunaDetails:{id:string}
+  VacunasList:undefined;
+  VacunaDetails:{id:string};
+  VacunasRegister:undefined;
 };

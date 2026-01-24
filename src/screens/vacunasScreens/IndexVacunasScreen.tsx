@@ -23,10 +23,10 @@ const IndexVacunasScreen = () => {
         onPress={() => navigation.navigate("VacunasList")}
       />
       <ButtonCustom
-        title="Lista de Vacunas"
+        title="Registrar una vacuna"
         btnTitleStyle={customStyles.btnText}
         btnStyle={[customStyles.btnStyle, customStyles.menuButton]}
-        onPress={() => navigation.navigate("VacunasList")}
+        onPress={() => navigation.navigate("VacunasRegister")}
       />
     </Container>
   );

@@ -18,27 +18,19 @@ const HomeScreen = () => {
           onPress={() => console.log("apreté el botón")}
         />
         <ButtonCustom
-          title="Ver todos los cerdos"
+          title="Buscar una vacuna"
           btnTitleStyle={styles.btnText}
           btnStyle={[styles.btnStyle, customStyles.menuButton]}
           darkMode={true}
           onPress={() => console.log("apreté el botón")}
         />
         <ButtonCustom
-          title="Agregar un cerdo"
+          title="Ver próximas pariciones"
           btnTitleStyle={styles.btnText}
           btnStyle={[styles.btnStyle, customStyles.menuButton]}
           darkMode={true}
           onPress={() => console.log("apreté el botón")}
         />
-        <ButtonCustom
-          title="Vacunas"
-          btnTitleStyle={styles.btnText}
-          btnStyle={[styles.btnStyle, customStyles.menuButton]}
-          darkMode={true}
-          onPress={() => console.log("apreté el botón")}
-        />
-
         
       </View>
     </Container>
