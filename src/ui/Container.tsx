@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         marginTop:Platform.OS === 'android' ? StatusBar.currentHeight:0,
-        backgroundColor: '#f3e8e2'
+        backgroundColor: '#f3e8e2',
+        gap:10
     }
 })

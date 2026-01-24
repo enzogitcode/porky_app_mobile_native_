@@ -39,7 +39,7 @@ const ButtonCustom: React.FC<ButtonCustomProps> = ({
         darkMode ? darkStyle : lightStyle,
       ]}
     >
-      <Text style={btnTitleStyle}>{title}</Text>
+      <Text style={[btnTitleStyle, styles.btnTextCenter]}>{title}</Text>
     </TouchableHighlight>
   );
 };
@@ -48,4 +48,7 @@ export default ButtonCustom;
 
 const styles = StyleSheet.create({
   btnDefaultStyle: {},
+  btnTextCenter: {
+    textAlign:'center'
+  }
 });

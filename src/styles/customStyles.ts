@@ -6,7 +6,7 @@ export const customStyles = StyleSheet.create({
     menuButton: {
         backgroundColor: colors.rosa,
         outlineColor: colors.cyan,
-        outlineWidth: 4
+        outlineWidth: 4,
     },
 
     infoButton: {
