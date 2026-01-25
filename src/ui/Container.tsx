@@ -6,7 +6,7 @@ interface Container {
     darkMode?:boolean
     containerStyle?:StyleProp<ViewStyle>
     darkModeContainerStyle?:StyleProp<ViewStyle>
-    lightModeContainerStyle?:StyleProp<ViewStyle>
+    lightModeContainerStyle?:StyleProp<ViewStyle> 
 }
 
 const Container:React.FC<Container> = ({children, darkMode, containerStyle, darkModeContainerStyle, lightModeContainerStyle}) => {
