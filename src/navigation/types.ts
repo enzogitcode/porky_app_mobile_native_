@@ -20,3 +20,9 @@ export type VacunasStackParamList = {
   VacunaDetails:{id:string};
   VacunasRegister:undefined;
 };
+// 👇 Vacunas stack
+export type PigStackParamList = {
+  IndexPigs:undefined;
+  PigRegister:undefined;
+  PigsList:undefined
+};

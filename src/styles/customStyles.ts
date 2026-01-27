@@ -27,7 +27,7 @@ export const customStyles = StyleSheet.create({
         borderWidth: 4
     },
     btnText: {
-        fontSize: 30
+        fontSize: 30,
     },
     btnStyle: {
         borderBlockColor: '#000',

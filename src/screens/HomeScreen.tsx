@@ -26,7 +26,7 @@ const HomeScreen = () => {
         />
         <ButtonCustom
           title="Ver próximas pariciones"
-          btnTitleStyle={styles.btnText}
+          btnTitleStyle={customStyles.btnText}
           btnStyle={[styles.btnStyle, customStyles.menuButton]}
           darkMode={true}
           onPress={() => console.log("apreté el botón")}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderWidth:4
   },
   btnText: {
-    fontSize: 30
+    fontSize: 30,
   },
   btnStyle: {
     borderBlockColor:'#000',
