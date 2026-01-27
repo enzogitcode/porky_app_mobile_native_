@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator();
 export default function AppNavigator() {
   return (  
     <Tab.Navigator initialRouteName="HomeTabs">
+      
       <Tab.Screen name="HomeTabs" component={HomeTabsNavigation} />
       <Tab.Screen name="PigsTabs" component={PigsTabsNavigation} />
       <Tab.Screen name="VacunasTabs" component={VacunasTabsNavigation} />

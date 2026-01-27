@@ -3,14 +3,16 @@ import React from 'react'
 import Container from '../../ui/Container'
 import Card from '../../ui/Card'
 import { useGetAllVacunasQuery } from '../../redux/features/vacunaSlice'
+import LoadingScreen from '../errorLoadingScreens/LoadingScreen'
+import ErrorScreen from '../errorLoadingScreens/ErrorScreen'
 
 const VacunasListScreen = () => {
 
   const {data, isLoading, isError} = useGetAllVacunasQuery()
 
   
-  if (isError) return <View><Text>Hubo un error...</Text></View>
-  if (isLoading) return <View><Text>Cargando página</Text></View>
+  if (isError) return <ErrorScreen />
+  if (isLoading) return <LoadingScreen/>
   return (
     <Container>
       <Text>VacunasListScreen</Text>
