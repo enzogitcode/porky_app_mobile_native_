@@ -7,7 +7,7 @@ import { customStyles } from '../styles/customStyles'
 const HomeScreen = () => {
   return (
     <Container>
-      <Text style={styles.btnText}>Welcome !!</Text>
+      <Text style={customStyles.titleText}>Welcome !!</Text>
 
       <View style={styles.buttonContainer}>
         <ButtonCustom

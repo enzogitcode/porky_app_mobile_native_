@@ -5,12 +5,10 @@ import {
   TextInput,
   Button,
   StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  TouchableWithoutFeedback,
   Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useCreateVacunaMutation } from "../../redux/features/vacunaSlice";
 import { useNavigation } from "@react-navigation/native";
 
@@ -35,89 +33,73 @@ const VacunasRegister = () => {
     setVacuna((prev) => ({ ...prev, [key]: value }));
   };
 
-  const [createVacuna, { isLoading, isError, data }] = useCreateVacunaMutation();
+  const [createVacuna] = useCreateVacunaMutation();
+  const navigation = useNavigation();
 
-  const navigate = useNavigation()
   const handleSubmit = async () => {
-    try {
-      await createVacuna(vacuna)
-      navigate.navigate('VacunasList')
-    } catch (error) {
-      console.log(error)
-    }
-  }
+    await createVacuna(vacuna);
+    navigation.navigate("VacunasList" as never);
+  };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 0} // ajusta según tu header
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView
-          contentContainerStyle={styles.container}
-          keyboardShouldPersistTaps="handled"
-        >
-          {/* Nombre */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Nombre:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre de la vacuna"
-              value={vacuna.nombre}
-              onChangeText={(text) => handleChange("nombre", text)}
-            />
-          </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.container}
+        enableOnAndroid
+        extraScrollHeight={120}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>Nombre:</Text>
+          <TextInput
+            style={styles.input}
+            value={vacuna.nombre}
+            onChangeText={(t) => handleChange("nombre", t)}
+          />
+        </View>
 
-          {/* Dosis */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Dosis:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Cantidad de dosis"
-              value={vacuna.dosis}
-              onChangeText={(text) => handleChange("dosis", text)}
-            />
-          </View>
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>Dosis:</Text>
+          <TextInput
+            style={styles.input}
+            value={vacuna.dosis}
+            onChangeText={(t) => handleChange("dosis", t)}
+          />
+        </View>
 
-          {/* Proveedor */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Proveedor:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre del proveedor"
-              value={vacuna.proveedor}
-              onChangeText={(text) => handleChange("proveedor", text)}
-            />
-          </View>
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>Proveedor:</Text>
+          <TextInput
+            style={styles.input}
+            value={vacuna.proveedor}
+            onChangeText={(t) => handleChange("proveedor", t)}
+          />
+        </View>
 
-          {/* Laboratorio */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Laboratorio:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre del laboratorio"
-              value={vacuna.laboratorio}
-              onChangeText={(text) => handleChange("laboratorio", text)}
-            />
-          </View>
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>Laboratorio:</Text>
+          <TextInput
+            style={styles.input}
+            value={vacuna.laboratorio}
+            onChangeText={(t) => handleChange("laboratorio", t)}
+          />
+        </View>
 
-          {/* Descripción */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Descripción:</Text>
-            <TextInput
-              style={[styles.input, styles.textarea]}
-              placeholder="Descripción de la vacuna"
-              value={vacuna.descripcion}
-              onChangeText={(text) => handleChange("descripcion", text)}
-              multiline
-            />
-          </View>
+        {/* ✅ AQUÍ YA NO SE TAPA */}
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>Descripción:</Text>
+          <TextInput
+            style={[styles.input, styles.textarea]}
+            multiline
+            textAlignVertical="top"
+            value={vacuna.descripcion}
+            onChangeText={(t) => handleChange("descripcion", t)}
+          />
+        </View>
 
-          <Button title="Guardar Vacuna" onPress={handleSubmit} />
-        </ScrollView>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+        <Button title="Guardar Vacuna" onPress={handleSubmit} />
+      </KeyboardAwareScrollView>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -126,6 +108,7 @@ export default VacunasRegister;
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    paddingBottom: 40,
   },
   inputGroup: {
     marginBottom: 16,
@@ -133,17 +116,14 @@ const styles = StyleSheet.create({
   label: {
     fontWeight: "bold",
     marginBottom: 4,
-    fontSize: 16,
   },
   input: {
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 6,
     padding: 10,
-    fontSize: 16,
   },
   textarea: {
-    height: 80,
-    textAlignVertical: "top",
+    height: 120,
   },
 });

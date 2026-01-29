@@ -6,8 +6,8 @@ import { customStyles } from "../../styles/customStyles";
 const LoadingScreen = () => {
   return (
     <View>
-      <Text style={customStyles.btnStyle}>Cargando Datos...</Text>
-      <Image source={require("./pigLoading.jpg")} />
+      <Text style={customStyles.titleText}>Cargando Datos...</Text>
+      <Image source={require("./cerdo_durmiendo.webp")} />
     </View>
   );
 };

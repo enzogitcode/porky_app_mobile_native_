@@ -1,7 +1,6 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "../../ui/Container";
-import Card from "../../ui/Card";
 import { useGetAllVacunasQuery } from "../../redux/features/vacunaSlice";
 import LoadingScreen from "../errorLoadingScreens/LoadingScreen";
 import ErrorScreen from "../errorLoadingScreens/ErrorScreen";
