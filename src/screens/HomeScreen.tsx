@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderWidth:4
   },
   btnText: {
-    fontSize: 30,
+    fontSize: 20,
   },
   btnStyle: {
     borderBlockColor:'#000',

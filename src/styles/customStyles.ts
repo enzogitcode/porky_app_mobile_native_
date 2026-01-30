@@ -3,6 +3,10 @@ import { colors } from "../constants/colors";
 
 
 export const customStyles = StyleSheet.create({
+    titleText:{
+        fontSize:30,
+        textAlign:'center'
+    },
     menuButton: {
         backgroundColor: colors.rosa,
         outlineColor: colors.cyan,
@@ -35,5 +39,16 @@ export const customStyles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 10,
         margin: 20,
+    },
+    goBackButton: {
+        padding: 10,
+        borderRadius: 14,
+        outlineWidth:2,
+        outlineColor: colors.cyan,
+        backgroundColor:colors.rosa
+    },
+    goBackButtonText: {
+        textAlign:'center',
+        fontSize:16
     }
 })

@@ -3,7 +3,7 @@ import type { Vacuna } from "../../types/vacunaType";
 
 export const vacunasApi = createApi({
     reducerPath: "vacunasApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4000/vacunas" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://10.0.2.2:4000/vacunas" }),
     tagTypes: ["Vacunas"],
     endpoints: (builder) => ({
         //lista de vacunas
