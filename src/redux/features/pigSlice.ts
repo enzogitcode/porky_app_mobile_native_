@@ -4,7 +4,7 @@ import { baseURL } from "../baseURL";
 
 export const pigsApi = createApi({
   reducerPath: "pigsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${baseURL}` }),
+  baseQuery: fetchBaseQuery({ baseUrl: `http://10.0.2.2:4000/` }),
   tagTypes: ["Pigs"],
 
   endpoints: (builder) => ({
