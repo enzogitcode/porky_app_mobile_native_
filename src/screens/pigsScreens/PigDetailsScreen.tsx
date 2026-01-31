@@ -48,10 +48,14 @@ const PigDetailsScreen = ({ route }: Props) => {
           <View style={styles.btnContainer}>
             <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showPariciones ? 'Ocultar pariciones' : 'Mostrar pariciones'} onPress={() => setShowPariciones(!showPariciones)} />
 
-<FlatList />
+            <FlatList
+            data={data?.pariciones}
+            keyExtractor={(paricion) => paricion._id}
+            renderItem={({item})=> <View>{item._id}</View>}
+            />
 
             <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showVacunas ? 'Ocultar vacunas' : 'Mostrar vacunas'} onPress={() => setShowVacunas(!showVacunas)} />
-              
+
           </View>
 
 
@@ -70,6 +74,6 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     marginVertical: 10,
-    gap:15
+    gap: 15
   }
 })
