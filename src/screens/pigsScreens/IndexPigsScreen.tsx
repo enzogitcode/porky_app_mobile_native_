@@ -4,7 +4,7 @@ import Container from "../../ui/Container";
 import ButtonCustom from "../../ui/ButtonCustom";
 import { customStyles } from "../../styles/customStyles";
 import { useNavigation } from "@react-navigation/native";
-import type { PigStackParamList } from "../../navigation/types";
+import type { PigStackParamList } from "../../navigation/navigationTypes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type PigsScreensProps = NativeStackNavigationProp<PigStackParamList, "IndexPigs">;

@@ -2,10 +2,17 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Pig } from '../../types/pigTypes'
 import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { PigStackParamList } from '../../navigation/navigationTypes'
 
 const PigCard: React.FC<Pig> = (props) => {
 
-  const navigate = useNavigation()
+  type NavigationProp = NativeStackNavigationProp<
+  PigStackParamList,
+  'PigsList'
+>;
+
+const navigation = useNavigation<NavigationProp>();
 
 
   return (
@@ -26,7 +33,7 @@ const PigCard: React.FC<Pig> = (props) => {
 
       <Text style={styles.text}>Lechones Totales: {props.lechonesTotal}</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigate.navigate('')}>
+      <TouchableOpacity style={styles.button} onPress={() => [navigation.navigate('PigDetails', {id:props._id} ), console.log(props._id)]}>
         <Text style={styles.buttonText}>Ver más detalles</Text>
       </TouchableOpacity>
     </View>

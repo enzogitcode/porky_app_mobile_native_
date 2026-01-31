@@ -1,12 +1,14 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
 // src/navigation/types.ts
 
 // 👇 Tab principal
 export type RootTabParamList = {
   HomeTabs: undefined;
-  PigsTabs:undefined;
-  VacunasTabs: undefined;
+  PigsTabs: NavigatorScreenParams<PigStackParamList>;
+  VacunasTabs: NavigatorScreenParams<VacunasStackParamList>;
   ProfileTabs: undefined;
 };
+
 
 // 👇 Home stack
 export type HomeStackParamList = {
@@ -20,9 +22,10 @@ export type VacunasStackParamList = {
   VacunaDetails:{id:string};
   VacunasRegister:undefined;
 };
-// 👇 Vacunas stack
+// 👇 Pig stack
 export type PigStackParamList = {
   IndexPigs:undefined;
   PigRegister:undefined;
   PigsList:undefined
+  PigDetails:{id:string}
 };

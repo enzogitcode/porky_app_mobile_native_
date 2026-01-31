@@ -50,5 +50,11 @@ export const customStyles = StyleSheet.create({
     goBackButtonText: {
         textAlign:'center',
         fontSize:16
+    },
+    textDetails: {
+        fontSize:18,
+        alignSelf:'center',
+        textAlign:'center',
+        marginVertical:4
     }
 })
