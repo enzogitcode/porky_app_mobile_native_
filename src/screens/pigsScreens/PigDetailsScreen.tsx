@@ -9,6 +9,8 @@ import Container from '../../ui/Container'
 import { customStyles } from '../../styles/customStyles'
 import ButtonCustom from '../../ui/ButtonCustom'
 import { FlatList } from 'react-native'
+import ParicionesCard from './ParicionCard'
+import ParicionCard from './ParicionCard'
 
 type Props = NativeStackScreenProps<PigStackParamList, 'PigDetails'>
 
@@ -48,13 +50,28 @@ const PigDetailsScreen = ({ route }: Props) => {
           <View style={styles.btnContainer}>
             <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showPariciones ? 'Ocultar pariciones' : 'Mostrar pariciones'} onPress={() => setShowPariciones(!showPariciones)} />
 
-            <FlatList
-            data={data?.pariciones}
-            keyExtractor={(paricion) => paricion._id}
-            renderItem={({item})=> <View>{item._id}</View>}
-            />
-
+            {data && showPariciones &&
+              <FlatList
+                keyExtractor={(item, index) => index.toString()}
+                data={data?.pariciones}
+                renderItem={({ item }) => <ParicionCard {...item} />}
+              />
+            }
             <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showVacunas ? 'Ocultar vacunas' : 'Mostrar vacunas'} onPress={() => setShowVacunas(!showVacunas)} />
+            {data && showVacunas &&
+              <FlatList
+                keyExtractor={(item, index) => index.toString()}
+                data={data?.vacunasAplicadas}
+                renderItem={({ item }) =>
+                  <View>
+                    <Text>
+                    </Text>
+                  </View>
+                  }
+              />
+            }
+
+
 
           </View>
 
