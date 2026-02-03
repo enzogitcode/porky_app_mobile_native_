@@ -3,8 +3,19 @@ import React from "react";
 import type { Vacuna } from "../../types/vacunaType";
 import { useDeleteVacunaByIdMutation } from "../../redux/features/vacunaSlice";
 import ButtonCustom from "../../ui/ButtonCustom";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type VacunaCardNavigationProp = NativeStackNavigationProp<
+  {
+    VacunaUpdater: { id: string };
+  }
+>;
 
 const VacunaCard: React.FC<Vacuna> = (props) => {
+
+  const navigation = useNavigation<VacunaCardNavigationProp>();
+  
   const [deleteVacunaById, { isLoading }] = useDeleteVacunaByIdMutation();
 
   const handleRemove = async () => {
@@ -61,6 +72,12 @@ const VacunaCard: React.FC<Vacuna> = (props) => {
         <ButtonCustom
           title={isLoading ? "Eliminando vacuna..." : "Eliminar"}
           onPress={handleRemove}
+        />
+        <ButtonCustom
+          title={"Actualizar"}
+          onPress={() =>
+            navigation.navigate("VacunaUpdater", {id: props._id})
+          }
         />
       </View>
     </View>

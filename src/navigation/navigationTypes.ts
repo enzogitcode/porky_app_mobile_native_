@@ -19,8 +19,9 @@ export type HomeStackParamList = {
 export type VacunasStackParamList = {
   IndexVacunas: undefined;
   VacunasList:undefined;
-  VacunaDetails:{id:string};
   VacunasRegister:undefined;
+  VacunaDetails:{id:string};
+  VacunaUpdater:{id:string};
 };
 // 👇 Pig stack
 export type PigStackParamList = {
