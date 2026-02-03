@@ -5,11 +5,9 @@ import ErrorScreen from '../errorLoadingScreens/ErrorScreen'
 import LoadingScreen from '../errorLoadingScreens/LoadingScreen'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { PigStackParamList } from '../../navigation/navigationTypes'
-import Container from '../../ui/Container'
 import { customStyles } from '../../styles/customStyles'
 import ButtonCustom from '../../ui/ButtonCustom'
 import { FlatList } from 'react-native'
-import ParicionesCard from './ParicionCard'
 import ParicionCard from './ParicionCard'
 
 type Props = NativeStackScreenProps<PigStackParamList, 'PigDetails'>
