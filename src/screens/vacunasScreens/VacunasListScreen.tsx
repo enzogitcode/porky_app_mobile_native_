@@ -5,11 +5,11 @@ import { useGetAllVacunasQuery } from "../../redux/features/vacunaSlice";
 import LoadingScreen from "../errorLoadingScreens/LoadingScreen";
 import ErrorScreen from "../errorLoadingScreens/ErrorScreen";
 import VacunaCard from "./VacunaCard";
-import { useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 import { customStyles } from "../../styles/customStyles";
 
 const VacunasListScreen = () => {
-  const navigate = useNavigation()
+  const navigation  = useNavigation()
   const { data, isLoading, isError } = useGetAllVacunasQuery();
 
   if (isError) return <ErrorScreen />;
@@ -17,13 +17,14 @@ const VacunasListScreen = () => {
   if (!isError || !isLoading)
     return (
       <Container>
-        <Pressable style={customStyles.goBackButton} onPress={() => navigate.goBack()} >
+        <Pressable style={customStyles.goBackButton} onPress={() => navigation.dispatch(StackActions.popToTop)} >
 
-        <Text style={customStyles.goBackButtonText}>Volver</Text>
+        <Text style={customStyles.goBackButtonText}>Ir a vacunas</Text>
         </Pressable>
         <Text style={customStyles.titleText}>Lista de vacunas registradas</Text>
         <FlatList 
         keyExtractor={(item) => item._id}
+        
         data={data}
         renderItem={({item}) => <VacunaCard {...item}/>}
         />

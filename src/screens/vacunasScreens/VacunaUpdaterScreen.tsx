@@ -46,7 +46,8 @@ const VacunaUpdaterScreen = ({ route }: Props) => {
   const handleSubmit = async () => {
     try {
       await updateVacuna({ id, data: vacunaUpdaterForm }).unwrap()
-      if (!isError) navigation.navigate('VacunasList')
+      if (!isError) navigation.navigate('VacunasList' as never)
+        
     } catch (error) {
       console.log(error)
     }
@@ -88,6 +89,7 @@ const VacunaUpdaterScreen = ({ route }: Props) => {
         contentContainerStyle={styles.container}
       >
         <Text style={customStyles.titleText}>Actualizar vacuna</Text>
+        <ButtonCustom title='volver' onPress={() => navigation.goBack()} btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText}/>
 
         {renderInput('Nombre', 'nombre', data?.nombre)}
         {renderInput('Laboratorio', 'laboratorio', data?.laboratorio)}
@@ -95,7 +97,7 @@ const VacunaUpdaterScreen = ({ route }: Props) => {
         {renderInput('Proveedor', 'proveedor', data?.proveedor)}
         {renderInput('Descripción', 'descripcion', data?.descripcion)}
 
-        <ButtonCustom title="Actualizar" onPress={handleSubmit} />
+        <ButtonCustom title="Actualizar" onPress={handleSubmit} btnStyle={customStyles.updateButton}/>
       </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   )

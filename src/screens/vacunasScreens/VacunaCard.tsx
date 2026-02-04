@@ -5,6 +5,8 @@ import { useDeleteVacunaByIdMutation } from "../../redux/features/vacunaSlice";
 import ButtonCustom from "../../ui/ButtonCustom";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { customStyles } from "../../styles/customStyles";
+import { Alert } from "react-native";
 
 type VacunaCardNavigationProp = NativeStackNavigationProp<
   {
@@ -18,14 +20,32 @@ const VacunaCard: React.FC<Vacuna> = (props) => {
   
   const [deleteVacunaById, { isLoading }] = useDeleteVacunaByIdMutation();
 
-  const handleRemove = async () => {
-    try {
-      const results = await deleteVacunaById(props._id).unwrap()
-      console.log(results)
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const handleRemove = async () => {
+  try {
+    await deleteVacunaById(props._id).unwrap();
+    console.log("Vacuna eliminada");
+  } catch (error) {
+    console.log("Error al eliminar:", error);
+  }
+};
+
+const confirmDelete = () => {
+  Alert.alert(
+    "Confirmar eliminación",
+    "¿Estás seguro de que deseas eliminar esta vacuna?",
+    [
+      {
+        text: "Cancelar",
+        style: "cancel",
+      },
+      {
+        text: "Eliminar",
+        style: "destructive",
+        onPress: handleRemove,
+      },
+    ]
+  );
+};
 
   
   return (
@@ -68,12 +88,15 @@ const VacunaCard: React.FC<Vacuna> = (props) => {
           })}
         </Text>
       </View>
-      <View>
+      <View style={styles.buttonContainer}>
         <ButtonCustom
           title={isLoading ? "Eliminando vacuna..." : "Eliminar"}
-          onPress={handleRemove}
+          onPress={confirmDelete}
+          btnStyle={customStyles.deleteButton}
+          btnTitleStyle={[customStyles.goBackButtonText, {color: '#fff'}]}
         />
         <ButtonCustom
+        btnStyle={customStyles.updateButton}
           title={"Actualizar"}
           onPress={() =>
             navigation.navigate("VacunaUpdater", {id: props._id})
@@ -88,7 +111,7 @@ export default VacunaCard;
 
 const styles = StyleSheet.create({
   cardContainer: {
-    padding: 16,
+    padding: 8,
     marginVertical: 8,
     backgroundColor: "#f2f2f2",
     borderRadius: 8,
@@ -106,4 +129,10 @@ const styles = StyleSheet.create({
   value: {
     textAlign: "center",
   },
+  buttonContainer: {
+    justifyContent: "space-evenly",
+    marginTop: 12,
+    width: "100%",
+   gap: 10,
+  }
 });

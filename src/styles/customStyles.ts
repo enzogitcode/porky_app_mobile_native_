@@ -56,5 +56,19 @@ export const customStyles = StyleSheet.create({
         alignSelf:'center',
         textAlign:'center',
         marginVertical:4
+    },
+    deleteButton: {
+        backgroundColor: colors.rojo,
+        padding: 8,
+        borderRadius: 14,
+        outlineWidth:2,
+        outlineColor: colors.cyan,
+    },
+    updateButton: {
+        backgroundColor: colors.azulActualizar,
+        padding: 8,
+        borderRadius: 14,
+        outlineWidth:2,
+        outlineColor: colors.cyan,
     }
 })
