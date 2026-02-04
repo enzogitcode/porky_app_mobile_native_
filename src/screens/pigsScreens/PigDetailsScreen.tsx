@@ -9,6 +9,7 @@ import { customStyles } from '../../styles/customStyles'
 import ButtonCustom from '../../ui/ButtonCustom'
 import { FlatList } from 'react-native'
 import ParicionCard from './ParicionCard'
+import Container from '../../ui/Container'
 
 type Props = NativeStackScreenProps<PigStackParamList, 'PigDetails'>
 
@@ -29,7 +30,7 @@ const PigDetailsScreen = ({ route }: Props) => {
   if (isLoading) return <LoadingScreen />
   if (!isError || !isLoading)
     return (
-      <View style={styles.container}>
+      <Container>
         <Text>
           Detalles del cerdo: Caravana N° {data?.nroCaravana}
         </Text>
@@ -76,7 +77,7 @@ const PigDetailsScreen = ({ route }: Props) => {
 
         </View>
 
-      </View>
+      </Container>
     )
 }
 
