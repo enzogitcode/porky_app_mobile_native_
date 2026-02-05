@@ -11,6 +11,7 @@ import { Alert } from "react-native";
 type VacunaCardNavigationProp = NativeStackNavigationProp<
   {
     VacunaUpdater: { id: string };
+    VacunaAplicar: { id: string };
   }
 >;
 
@@ -100,6 +101,13 @@ const confirmDelete = () => {
           title={"Actualizar"}
           onPress={() =>
             navigation.navigate("VacunaUpdater", {id: props._id})
+          }
+        />
+        <ButtonCustom
+        btnStyle={customStyles.infoButtonAmber}
+          title={"Aplicar vacuna"}
+          onPress={() =>
+            navigation.navigate("VacunaAplicar", {id: props._id})
           }
         />
       </View>

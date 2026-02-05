@@ -22,6 +22,7 @@ export type VacunasStackParamList = {
   VacunasRegister:undefined;
   VacunaDetails:{id:string};
   VacunaUpdater:{id:string};
+  vacunaAplicar:{id:string};
 };
 // 👇 Pig stack
 export type PigStackParamList = {

@@ -3,7 +3,8 @@ export const colors = {
     azulButton:"#0d2bd2ff",
     azulActualizar: "#1e90ffff",
     cyan:'#00d3f2',
-    rojo:'#ea1414'
+    rojo:'#ea1414',
+    amber: '#ffbf00'
 }
 export default colors
 

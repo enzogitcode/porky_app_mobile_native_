@@ -70,5 +70,12 @@ export const customStyles = StyleSheet.create({
         borderRadius: 14,
         outlineWidth:2,
         outlineColor: colors.cyan,
+    },
+    infoButtonAmber: {
+        backgroundColor: colors.amber,
+        padding: 8,
+        borderRadius: 14,
+        outlineWidth:2,
+        outlineColor: colors.cyan,
     }
 })

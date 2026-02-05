@@ -30,8 +30,8 @@ const PigDetailsScreen = ({ route }: Props) => {
   if (isLoading) return <LoadingScreen />
   if (!isError || !isLoading)
     return (
-      <Container>
-        <Text>
+      <View style={styles.container}>
+        <Text style={customStyles.titleText}>
           Detalles del cerdo: Caravana N° {data?.nroCaravana}
         </Text>
         <View>
@@ -77,7 +77,7 @@ const PigDetailsScreen = ({ route }: Props) => {
 
         </View>
 
-      </Container>
+      </View>
     )
 }
 
@@ -86,10 +86,13 @@ export default PigDetailsScreen
 const styles = StyleSheet.create({
   container: {
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    marginHorizontal:20,
+    alignItems:'center'
 
   },
   btnContainer: {
     marginVertical: 10,
+    marginHorizontal: 30,
     gap: 15
   }
 })

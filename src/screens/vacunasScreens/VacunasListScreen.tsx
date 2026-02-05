@@ -1,4 +1,4 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 import React from "react";
 import Container from "../../ui/Container";
 import { useGetAllVacunasQuery } from "../../redux/features/vacunaSlice";
