@@ -6,6 +6,7 @@ import PigDetailsScreen from "../../screens/pigsScreens/PigDetailsScreen"
 import PigAplicarVacunas from "../../screens/pigsScreens/PigAplicarVacunasScreen"
 import PigAplicarVacunasScreen from "../../screens/pigsScreens/PigAplicarVacunasScreen"
 import ParicionesListScreen from "../../screens/pigsScreens/ParicionesListScreen"
+import UpdateParicionScreen from "../../screens/pigsScreens/UpdateParicionScreen"
 
 const PigsStack = createNativeStackNavigator()
 
@@ -20,6 +21,7 @@ const PigsTabsNavigation = () => {
             </PigsStack.Screen>
             <PigsStack.Screen name="PigAplicarVacunas" component={PigAplicarVacunasScreen}/>
             <PigsStack.Screen name="ParicionesList" component={ParicionesListScreen}/>
+            <PigsStack.Screen name="UpdateParicion" component={UpdateParicionScreen}/>
         </PigsStack.Navigator>
     )
 }

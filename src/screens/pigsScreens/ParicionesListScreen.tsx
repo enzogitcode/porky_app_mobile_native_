@@ -86,7 +86,7 @@ const ParicionesListScreen = ({ route }: Props) => {
             <Text style={styles.value}>{item.servicio.macho}</Text>
           </Text>
         )}
-        <ButtonCustom onPress={() => navigation.navigate('UpdateParicion', {id:data?._id})}
+<ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.textDetails} onPress={() => navigation.navigate('UpdateParicion', {id:data?._id})} title='Editar parición'/>
       </View>
     </View>
   )

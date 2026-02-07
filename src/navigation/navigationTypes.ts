@@ -32,4 +32,5 @@ export type PigStackParamList = {
   PigDetails:{id:string};
   PigAplicarVacunas:{id:string};
   ParicionesList: {id:string}
+  UpdateParicion: {id:string}
 };
