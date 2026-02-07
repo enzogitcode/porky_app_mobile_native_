@@ -18,6 +18,7 @@ interface ButtonCustomProps {
   btnStyle?: StyleProp<ViewStyle>;
   lightStyle?: StyleProp<ViewStyle>;
   darkStyle?: StyleProp<ViewStyle>;
+  disabled?:boolean
 }
 
 const ButtonCustom: React.FC<ButtonCustomProps> = ({
@@ -28,9 +29,11 @@ const ButtonCustom: React.FC<ButtonCustomProps> = ({
   btnStyle,
   lightStyle,
   darkStyle,
+  disabled
 }) => {
   return (
     <TouchableHighlight
+    disabled={disabled}
       onPress={onPress}
       style={[
         

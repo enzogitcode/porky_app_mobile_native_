@@ -9,12 +9,13 @@ import { customStyles } from '../../styles/customStyles'
 import ButtonCustom from '../../ui/ButtonCustom'
 import { FlatList } from 'react-native'
 import ParicionCard from './ParicionCard'
-import Container from '../../ui/Container'
+import { useNavigation } from '@react-navigation/native'
 
 type Props = NativeStackScreenProps<PigStackParamList, 'PigDetails'>
 
 const PigDetailsScreen = ({ route }: Props) => {
 
+  const navigation = useNavigation()
 
   const { id } = route.params
   const { data, isError, isLoading } = useGetPigByIdQuery(id)
@@ -24,7 +25,7 @@ const PigDetailsScreen = ({ route }: Props) => {
 
   useEffect(() => {
     console.log(data)
-  }, [id]);
+  }, [data]);
 
   if (isError) return <ErrorScreen />
   if (isLoading) return <LoadingScreen />
@@ -47,15 +48,12 @@ const PigDetailsScreen = ({ route }: Props) => {
           </Text>)}
 
           <View style={styles.btnContainer}>
-            <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showPariciones ? 'Ocultar pariciones' : 'Mostrar pariciones'} onPress={() => setShowPariciones(!showPariciones)} />
+            {data?.estadio !== 'fallecido' && <ButtonCustom btnStyle={customStyles.infoButtonAmber} btnTitleStyle={customStyles.goBackButtonText} title="Aplicar Vacunas" onPress={() => navigation.navigate('PigAplicarVacunas', {id:data?._id})} />}
+            <ButtonCustom btnStyle={customStyles.infoButtonAmber} btnTitleStyle={customStyles.goBackButtonText} title="Editar cerdo" />
+            {data?.pariciones?.length !== 0 ? 
+            <ButtonCustom btnStyle={customStyles.goBackButton} title='Ver pariciones' onPress={() => navigation.navigate('ParicionesList', {id:data?._id})}/>
+            : <ButtonCustom title='No hay pariciones aún' />}
 
-            {data && showPariciones &&
-              <FlatList
-                keyExtractor={(item, index) => index.toString()}
-                data={data?.pariciones}
-                renderItem={({ item }) => <ParicionCard {...item} />}
-              />
-            }
             <ButtonCustom btnStyle={customStyles.goBackButton} btnTitleStyle={customStyles.goBackButtonText} title={showVacunas ? 'Ocultar vacunas' : 'Mostrar vacunas'} onPress={() => setShowVacunas(!showVacunas)} />
             {data && showVacunas &&
               <FlatList

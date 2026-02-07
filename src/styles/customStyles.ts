@@ -8,6 +8,7 @@ export const customStyles = StyleSheet.create({
         textAlign:'center'
     },
     menuButton: {
+        borderRadius:14,
         backgroundColor: colors.rosa,
         outlineColor: colors.cyan,
         outlineWidth: 4,

@@ -28,6 +28,8 @@ export type VacunasStackParamList = {
 export type PigStackParamList = {
   IndexPigs:undefined;
   PigRegister:undefined;
-  PigsList:undefined
-  PigDetails:{id:string}
+  PigsList:undefined;
+  PigDetails:{id:string};
+  PigAplicarVacunas:{id:string};
+  ParicionesList: {id:string}
 };
